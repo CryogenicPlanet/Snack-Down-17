@@ -1,38 +1,44 @@
 #include <iostream>
-
+#include "stdio.h"
 using namespace std;
-char* run();
+char* run(int strlen);
+
 int main(int argc, char const *argv[]) {
-  cout << "Reports =" << '\n';
+int strLen;
   int reports = 0;
   std::cin >> reports;
+std::cout << "In Main" << '\n';
   // array of ouput
-  std::cout << "Reports =" << reports << '\n';
+  std::cout << "report" << reports << '\n';
   char* ans[reports];
 //input function
     for (int i = 0; i < reports; i++) {
-          ans[i] = run();
+    std::cin >> strLen;
+          ans[i] = run(strLen);
 
 }
+for (int i = 0; i < reports; i++) {
 
+      std::cout << ans[i] << '\n';
 }
-char* run(){
-  std::cout << "In run" << '\n';
+}
+char* run(int strLen){
+ std::cout << "In run" << '\n';
+if (strLen == 0) {
+  std::cout << "In if" << '\n';
+  scanf("%d\n",&strLen );
+}
+  std::cout << "strLen" << strLen << '\n';
           char* output;
-          int strLen = 0;
-          std::cin >> strLen;
-          std::cout << "Strlen" << strLen << '\n';
+
           char input,t,h;
           t = 'T';
           h = 'H';
-          int open,str;
-            for (int i = 0; i < strLen+1; i++) {
+          int open = 0;
+            for (int i = 0; i < strLen; i++) {
                   std::cin.get(input);
                   if (input == h) {
-                      if (str == 0) {
-                        str = 1;
-                      }
-                      if (open ==0) {
+                      if (open == 0) {
                        open = 1;
                      } else if (open == 1) {
                        output = "Invalid";
@@ -49,11 +55,7 @@ char* run(){
                   }
 
           }
-          if (str == 0) {
-                output =  "Invalid";
-                return output;
-              } else {
                 output = "Valid";
                 return output;
-              }
+
 }
