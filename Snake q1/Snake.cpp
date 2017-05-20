@@ -14,11 +14,12 @@ std::cout << "In Main" << '\n';
 //input function
     for (int i = 0; i < reports; i++) {
     std::cin >> strLen;
+    //caliing run function
           ans[i] = run(strLen);
 
 }
 for (int i = 0; i < reports; i++) {
-
+//output
       std::cout << ans[i] << '\n';
 }
 }
@@ -26,6 +27,7 @@ char* run(int strLen){
  std::cout << "In run" << '\n';
 if (strLen == 0) {
   std::cout << "In if" << '\n';
+  //this is where the problem is mainly it is not taking the string length multiple times it is taking only once and then failing
   scanf("%d\n",&strLen );
 }
   std::cout << "strLen" << strLen << '\n';
