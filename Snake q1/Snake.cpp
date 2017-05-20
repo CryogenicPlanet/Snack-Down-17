@@ -30,7 +30,15 @@ char* run(int strLength){
           h = 'H';
           int open = 0;
             for (int i = 0; i < strLength+1; i++) {
+              int x =0;
                   std::cin.get(input);
+                  while (x =0) {
+                    if(input != ' ' || input != '\r' || input != '\n'){
+                      x =1;
+                    } else {
+                      std::cin.get(input);
+                    }
+                  }
                   if (input == h) {
                       if (open == 0) {
                        open = 1;
