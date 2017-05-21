@@ -33,26 +33,44 @@ int main(void) {
 			//all you need to make sure is that the points intersect. Since they move in same direction.
 			if(xh1 == xh2)// if the snakes meet on x axis.
 			{
-				if(yh2 > yt1 && yh2 < yh1){// if head of snake2 is between tail & head of other snake.
+				if(yh2 >= yt1 && yh2 <= yh1){// if head of snake2 is between tail & head of other snake.
 					condition = 1;
 				}
-				else if(yh1 > yt2 && yh1 < yh2){// if head of snake is between tail & head of other snake.
+				else if(yh1 >= yt2 && yh1 <= yh2){// if head of snake is between tail & head of other snake.
 					condition = 1;
 				}
-				else if(yt2 > yt1 && yt2 < yh1){// if tail of snake 2 is between tail & head of other snake.
+				else if(yt2 >= yt1 && yt2 <= yh1){// if tail of snake 2 is between tail & head of other snake.
 					condition = 1;
 				}
-				else if(yt1 > yt2 && yt1 < yh2){// if tail of snake is between tail & head of other snake.
+				else if(yt1 >= yt2 && yt1 <= yh2){// if tail of snake is between tail & head of other snake.
+					condition = 1;
+				}
+
+				else if(yh2 <= yt1 && yh2 >= yh1){
+					condition = 1;
+				}
+				else if(yh1 <= yt2 && yh1 >= yh2){
+					condition = 1;
+				}
+				else if(yt2 <= yt1 && yt2 >= yh1){
+					condition = 1;
+				}
+				else if(yt1 <= yt2 && yt1 >= yh2){
 					condition = 1;
 				}
 
 			}
 			else if(yh1 == yh2)// if the snakes are meeting on y axis.
 			{
-				if(xh2 > xt1 && xh2 < xh1) condition = 1;// if head of snake 2 is between tail & head of other snake.
-				else if(xt2 > xt1 && xt2 < xh1) condition = 1;// if tail of snake 2 is between tail & head of other snake.
-				else if(xh1 > xt2 && xh1 < xh2) condition = 1;// if head of snake is between tail & head of other snake.
-				else if(xt1 > xt2 && xt1 < xh2) condition = 1;// if tail of snake is between tail & head of other snake.
+				if(xh2 >= xt1 && xh2 <= xh1) condition = 1;// if head of snake 2 is between tail & head of other snake.
+				else if(xt2 >= xt1 && xt2 <= xh1) condition = 1;// if tail of snake 2 is between tail & head of other snake.
+				else if(xh1 >= xt2 && xh1 <= xh2) condition = 1;// if head of snake is between tail & head of other snake.
+				else if(xt1 >= xt2 && xt1 <= xh2) condition = 1;// if tail of snake is between tail & head of other snake.
+
+				else if(xh2 <= xt1 && xh2 >= xh1) condition = 1;//
+				else if(xt2 <= xt1 && xt2 >= xh1) condition = 1;//
+				else if(xh1 <= xt2 && xh1 >= xh2) condition = 1;//
+				else if(xt1 <= xt2 && xt1 >= xh2) condition = 1;//
 
 			}
 		}
