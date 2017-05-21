@@ -19,6 +19,7 @@ int main(void) {
 	scanf("%d", &testcases);
 	for(int a = 0; a < testcases; a++)
 	{
+		condition = 0;
 		scanf("%d %d %d %d", &xh1, &yh1, &xt1, &yt1);
 		scanf("%d %d %d %d", &xh2, &yh2, &xt2, &yt2);
 
