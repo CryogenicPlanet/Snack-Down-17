@@ -15,23 +15,26 @@ int debug = 1;
 
 int main(void) {
 	int testcases, condition = 0;
-	int xh1,yh1,xt1,yt1;// X & Y coordinates of Head1(h1) && Tail1(t1)
-	int xh2,yh2,xt2,yt2;// X & Y coordinates of Head2(h2) && Tail2(t2)
+	long long xh1,yh1,xt1,yt1;// X & Y coordinates of Head1(h1) && Tail1(t1)
+	long long xh2,yh2,xt2,yt2;// X & Y coordinates of Head2(h2) && Tail2(t2)
 	int pos1, pos2;// 0 = vertical 1 = horizontal
 	scanf("%d", &testcases);
 	for(int a = 0; a < testcases; a++)
 	{
 		condition = 0;
-		scanf("%d %d %d %d", &xh1, &yh1, &xt1, &yt1);
-		if (debug) printf("First: %d %d %d %d\n", xh1, yh1, xt1, yt1);
-		scanf("%d %d %d %d", &xh2, &yh2, &xt2, &yt2);
-		if (debug) printf("Second: %d %d %d %d\n", xh2, yh2, xt2, yt2);
+		scanf("%lld %lld %lld %lld", &xh1, &yh1, &xt1, &yt1);
+		if (debug) printf("First: %lld %lld %lld %lld\n", xh1, yh1, xt1, yt1);
+		scanf("%lld %lld %lld %lld", &xh2, &yh2, &xt2, &yt2);
+		if (debug) printf("Second: %lld %lld %lld %lld\n", xh2, yh2, xt2, yt2);
 
 		// which direction do the snakes move
 		if(xh1 != xt1) pos1 = 0;
+		else if(xh1 == xt1 && yh1 == yt1) pos1 = 2;
 		else pos1 = 1;
 
+
 		if(xh2 != xt2) pos2 = 0;// moves vertically
+		else if(xh1 == xt1 && yh1 == yt1) pos1 = 2;
 				else pos2 = 1;//  moves horizontally
 		if(pos1 == pos2)
 		{
