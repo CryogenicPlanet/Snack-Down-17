@@ -17,7 +17,7 @@ int main(void) {
 	int testcases, condition = 0;
 	long long xh1,yh1,xt1,yt1;// X & Y coordinates of Head1(h1) && Tail1(t1)
 	long long xh2,yh2,xt2,yt2;// X & Y coordinates of Head2(h2) && Tail2(t2)
-	int pos1, pos2;// 0 = vertical 1 = horizontal
+	int pos1, pos2;// 0 = vertical, 1 = horizontal
 	scanf("%d", &testcases);
 	for(int a = 0; a < testcases; a++)
 	{
@@ -39,7 +39,7 @@ int main(void) {
 		if(pos1 == pos2)
 		{
 			//all you need to make sure is that the points intersect. Since they move in same direction.
-			if(xh1 == xh2)// if the snakes meet on x axis.
+			if((pos1 == 0) && (xh1 == xh2))// if the snakes meet on x axis.
 			{
 				if(yh2 >= yt1 && yh2 <= yh1){// if head of snake2 is between tail & head of other snake.
 					if (debug) printf ("YT1H2H1\n");
@@ -76,7 +76,7 @@ int main(void) {
 				}
 
 			}
-			else if(yh1 == yh2)// if the snakes are meeting on y axis.
+			else if((pos1 == 1) && (yh1 == yh2))// if the snakes are meeting on y axis.
 			{
 				if(xh2 >= xt1 && xh2 <= xh1) {
 					if (debug) printf ("XT1H2H1\n");
@@ -105,12 +105,29 @@ int main(void) {
 				}
 				else if(xh1 <= xt2 && xh1 >= xh2) {
 					if (debug) printf ("XH2H1T2\n");
-					condition = 1;//
+					condition = 1;
 				}
 				else if(xt1 <= xt2 && xt1 >= xh2) {
 					if (debug) printf ("XH2T1T2\n");
-					condition = 1;//
+					condition = 1;
 				}
+			}
+		}
+		else if(pos1 == 2 || pos2 == 2)
+		{
+			if(xh1 == xh2)
+			{
+				if(yh1 <= yh2 && yh1 >= yt2) condition = 1;
+				else if(yh1 >= yh2 && yh1 <= yt2) condition = 1;
+				else if(yh2 <= yh1 && yh2 >= yt1) condition = 1;
+				else if(yh2 >= yh1 && yh2 <= yt1) condition = 1;
+			}
+			else if(yh1 == yh2)
+			{
+				if(xh1 <= xh2 && xh1 >= xt2) condition = 1;
+				else if(xh1 >= xh2 && xh1 <= xt2) condition = 1;
+				else if(xh2 <= xh1 && xh2 >= xt1) condition = 1;
+				else if(xh2 >= xh1 && xh2 <= xt1) condition = 1;
 			}
 		}
 		else if(pos1 != pos2)
