@@ -52,9 +52,9 @@ std:: cout << " " << '\n';
 void solve(int x,int y) {
   int answers[5002][3];
   int answer;
-  int steps[5002][3];
 answer = 0;
 int temp;
+int steps[5002][3];
 while ((checkSpace(x,y) ==  false)) {
 
 
@@ -194,43 +194,13 @@ while ((checkSpace(x,y) ==  false)) {
 
   }
 end_of_while :
-std::cout << "answer :" << answer-1 << '\n';
-for (size_t j = 0; j < 4; j++) {
-      std::cout << answers[answer-1][j] + 1 << '\t';
-      steps[answer-1][j] = answers[answer-1][j] + 1;
+int x =0;
 }
-std::cout << " " << '\n';
-if (answer == 9 || answer == 11 || answer == 7) {
-  for (size_t j = 0; j < 4; j++) {
-        std::cout << answers[answer-2][j] + 1 << '\t';
-        steps[answer-2][j] = answers[answer-2][j] + 1;
-
-  }
-    std::cout << " " << '\n';
-}
-if (answer == 5 ) {
-  for (int i = 1; i < 3; i++) {
-    for (size_t j = 0; j < 4; j++) {
-          std::cout << answers[answer-i][j] + 1 << '\t';
-          steps[answer-i][j] = answers[answer-i][j] + 1;
-    }
-      std::cout << " " << '\n';
-  }
-  }
-
-
-
-
-
-}
-  if (answer == 5001) {
-    answer = 5000;
-  }
-
+answer--;
   std:: cout << answer << '\n';
   for (size_t i = 0; i < answer; i++) {
     for (size_t j = 0; j < 4; j++) {
-          std::cout << steps[i][j] + 1 << '\t';
+          std::cout << answers[i][j] + 1 << '\t';
 
     }
     std::cout << " " << '\n';
