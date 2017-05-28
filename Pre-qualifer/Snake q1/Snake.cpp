@@ -1,5 +1,7 @@
 #include <iostream>
 #include "stdio.h"
+#include <stdio.h>
+#include <string>
 using namespace std;
 char* run(int strLength);
 
@@ -23,23 +25,18 @@ for (int i = 0; i < reports; i++) {
 }
 }
 char* run(int strLength){
-  char* output;
+  char* output = "Valid";
 
           char input,t,h;
           t = 'T';
           h = 'H';
           int open = 0;
+       // std::cin >> input;
             for (int i = 0; i < strLength+1; i++) {
-              int x =0;
-                  std::cin.get(input);
-                  while (x =0) {
-                    if(input != ' ' || input != '\r' || input != '\n'){
-                      x =1;
-                    } else {
-                      std::cin.get(input);
-                    }
-                  }
+               input = getchar();
+                       //std::cout << input << std::endl;
                   if (input == h) {
+
                       if (open == 0) {
                        open = 1;
                      } else if (open == 1) {
@@ -57,9 +54,11 @@ char* run(int strLength){
                   }
 
           }
+        //  std::cout << output << std::endl;
           if (open == 1) {
             output = "Invalid";
           }
+
                 if (output != "Invalid") {
                   output = "Valid";
                 }
