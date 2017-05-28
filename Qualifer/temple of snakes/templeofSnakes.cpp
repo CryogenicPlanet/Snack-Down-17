@@ -3,7 +3,7 @@
 using namespace std;
 int runOdd(int no);
 int runEven(int no);
-int* input(int no);
+//int* input(int no);
 bool checkTemple(int* input,int no);
 int main(int argc, char const *argv[]) {
   int cases = 0;
@@ -33,7 +33,7 @@ int main(int argc, char const *argv[]) {
         if (checkTemple(input,no) == true) {
           return operationsDone;
         } else {
-            for (size_t i = 0; i < midPoint; i++) {
+            for (int i = 0; i < midPoint; i++) {
               while((input[i] + 1) != input[i +1]) {
                 if(input[i] ==  input[i + 1]) {
                     input[i]--;
@@ -45,9 +45,8 @@ int main(int argc, char const *argv[]) {
                   operationsDone++;
               }
             }
-            /*
-            for (size_t i = midPoint; i < no; i++) {
-                while((input[i] -1) != input[i - 1]){
+            for (size_t i = no-1; i > midPoint; i--) {
+                while((input[i] +1) != input[i - 1]){
                   if(input[i] ==  input[i - 1]) {
                     input[i-1]--;
                   }else if (input[i] > input[i  - 1]) {
@@ -58,7 +57,7 @@ int main(int argc, char const *argv[]) {
                     operationsDone++;
                 }
 
-            } */
+            }
           return operationsDone;
         }
       }
@@ -70,14 +69,24 @@ int runEven(int no){
   }
   int midPoint = 0;
   midPoint = ceil(no / 2);
+if (no == 2) {
+  if (input[0]==1) {
+    operationsDone = input[1] - 0;
+    input[1] = 0;
 
+  }else{
+    operationsDone = input[0] - 0;
+    input[0] = 1;
+
+  }
+}
   if (input[0] == input[1]) {
     operationsDone++;
     input[0]--;
   }
   if (input[no-2] == input[no-1]) {
     input[no-1]--;
-
+    midPoint--;
     operationsDone++;
   }
 int midVal = input[midPoint];
@@ -85,7 +94,7 @@ int midVal = input[midPoint];
     return operationsDone;
   } else {
 
-      for (size_t i = 0; i < midPoint; i++) {
+      for (int i = 0; i < midPoint; i++) {
         while((input[i] + 1) != input[i +1]) {
           if(input[i] ==  input[i + 1]) {
               input[i]--;
@@ -97,6 +106,25 @@ int midVal = input[midPoint];
             operationsDone++;
         }
       }
+
+      for (size_t i = no-1; i > midPoint; i--) {
+          while((input[i] +1) != input[i - 1]){
+            if(input[i] ==  input[i - 1]) {
+              input[i-1]--;
+            }else if (input[i] > input[i  - 1]) {
+              input[i]--;
+            }else if (input[i] < input[i - 1]) {
+              input[i-1]--;
+            }
+              operationsDone++;
+          }
+
+      }
+      /*
+      for (size_t i = 0; i < no; i++) {
+        std::cout << input[i] << '\t';
+            }
+            std::cout << "" << '\n'; */
     return operationsDone;
   }
 }
@@ -106,13 +134,13 @@ bool checkTemple(int* input,int no) {
     midPoint = ceil(no / 2) + 1;
     int midarray = midPoint -1;
   int midVal = input[midarray];
-
+  std::cout << midVal << midarray << midPoint << '\n';
   for (int i = 1; i < midPoint; i++) {
         if (input[midarray-i] == midVal - i && input[midarray+i] == midVal - i) {
             score++;
         }
   }
-  if (score == (no - midPoint)) {
+ if (score == (no - midPoint)) {
     return true;
   } else {
     return false;
